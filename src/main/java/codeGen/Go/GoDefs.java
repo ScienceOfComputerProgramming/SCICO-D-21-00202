@@ -30,6 +30,7 @@ public interface GoDefs {
 	public final int TEST_FILE_ID = 1;
 	public final int TESTCASE_FILE_ID = 2;
 	public final int USE_CASE_FILE_ID = 3;
+	public final int MODULE_FILE_ID = 4;
 	//--------------------------------------------------------------------------------
 	// useful things for code writing
 	static final String TAB = "    ";

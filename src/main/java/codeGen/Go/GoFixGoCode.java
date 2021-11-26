@@ -55,6 +55,26 @@ public class GoFixGoCode {
 	}
 
 	//================================================================================
+	// GO Module File Generation
+	//================================================================================
+	//--------------------------------------------------------------------------------
+	public void generateModuleFile() throws SNHException {
+		//--------------------------------------------------------------------------------
+		// switch file
+		codeWriter.switch2File(GoDefs.MODULE_FILE_ID);
+		//--------------------------------------------------------------------------------
+		// write code
+		codeWriter.write(""
+				+      "module useCases"
+				+NL+   ""
+				+NL+   "go 1.14"
+				+NL+   ""
+				+NL+   "require github.com/peermodel/simulator v0.1.0"
+				+NL+   ""
+				+NL+   "");
+	}
+
+	//================================================================================
 	// USE CASE FILE PARTS
 	//================================================================================
 	//--------------------------------------------------------------------------------
@@ -75,10 +95,10 @@ public class GoFixGoCode {
 				+NL+   "package pmUseCases " 
 				+NL+   ""
 				+NL+   "import ( " 
-				+NL+   "	. \"cca/controller\" "
-				+NL+   "	. \"cca/debug\" " 
-				+NL+   "	. \"cca/pmModel\" "
-				+NL+   "	. \"cca/scheduler\" "
+				+NL+   "	. \"github.com/peermodel/simulator/controller\" "
+				+NL+   "	. \"github.com/peermodel/simulator/debug\" "
+				+NL+   "	. \"github.com/peermodel/simulator/pmModel\" "
+				+NL+   "	. \"github.com/peermodel/simulator/scheduler\" "
 				+NL+   "	\"fmt\" " 
 				+NL+   ") "
 				+NL+   ""
@@ -240,12 +260,12 @@ public class GoFixGoCode {
 				+NL+   "package pmsm_test "
 				+NL+   ""
 				+NL+   "import ( "
-				+NL+   "    . \"cca/config\" " 
-				+NL+   "    . \"cca/debug\" "
-				+NL+   "    . \"cca/framework\" " 
-				+NL+   "    . \"cca/pmAutomata\" "
-				+NL+   "    . \"cca/pmModel\" "
-				+NL+   "    . \"cca/runtime\" "
+				+NL+   "    . \"github.com/peermodel/simulator/config\" "
+				+NL+   "    . \"github.com/peermodel/simulator/debug\" "
+				+NL+   "    . \"github.com/peermodel/simulator/framework\" "
+				+NL+   "    . \"github.com/peermodel/simulator/pmAutomata\" "
+				+NL+   "    . \"github.com/peermodel/simulator/pmModel\" "
+				+NL+   "    . \"github.com/peermodel/simulator/runtime\" "
 				+NL+   "    \"fmt\" "
 				+NL+   "    \"testing\" "
 				+NL+   "	. \"" + dir + "/" + relativeUcPath + useCaseAndConfigName + "/use-case\" // <<<<<< "
@@ -370,12 +390,12 @@ public class GoFixGoCode {
 				+NL+   "package pmUseCases"
 				+NL+   ""
 				+NL+   "import ("
-				+NL+   "	. \"cca/config\" "
-				+NL+   "	. \"cca/controller\" "
-				+NL+   "	. \"cca/debug\" "
-				+NL+   "	. \"cca/latex\" " 
-				+NL+   "	. \"cca/pmModel\" " 
-				+NL+   "	. \"cca/scheduler\" "
+				+NL+   "	. \"github.com/peermodel/simulator/config\" "
+				+NL+   "	. \"github.com/peermodel/simulator/controller\" "
+				+NL+   "	. \"github.com/peermodel/simulator/debug\" "
+				+NL+   "	. \"github.com/peermodel/simulator/latex\" "
+				+NL+   "	. \"github.com/peermodel/simulator/pmModel\" "
+				+NL+   "	. \"github.com/peermodel/simulator/scheduler\" "
 				+NL+   ") " 
 				+NL+   ""
 				+NL+   "//////////////////////////////////////////////////////////////"

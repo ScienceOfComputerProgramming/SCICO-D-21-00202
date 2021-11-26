@@ -91,7 +91,16 @@ public class GoCodeGen extends BasicCodeGen implements IBasicCodeGen {
 		// full use case name = pmmm name + config name 
 		GoFixGoCode autoGoCode = new GoFixGoCode(codeWriter, relativeUcPath, absoluteUcTargetPath, useCaseNameAndConfigName, dir);
 		//--------------------------------------------------------------------------------
-		// generate code for the following files: 
+		// generate code for the following files:
+		//================================================================================
+		// Module:
+		//================================================================================
+		try {
+			// - nb: generate fus switch automatically to right file !!! keep this code as is !!!
+			autoGoCode.generateModuleFile();
+		} catch (SNHException e) {
+			throw new SNHException(783465, "can't generate module file", m, e);
+		}
 
 		//================================================================================
 		// TEST:

@@ -60,6 +60,7 @@ public class GoCodeWriter extends codeGen.BasicCodeWriter implements codeGen.IBa
 	BufferedWriter useCase_BufferedWriter;
 	BufferedWriter testcase_BufferedWriter;
 	BufferedWriter test_BufferedWriter;
+	BufferedWriter module_BufferedWriter;
 	//--------------------------------------------------------------------------------
 	// cur fileId
 	int curFileId = -1; // undefined
@@ -71,6 +72,7 @@ public class GoCodeWriter extends codeGen.BasicCodeWriter implements codeGen.IBa
 	String useCase_FileName = "";
 	String test_FileName = "";
 	String testcase_FileName = "";
+	String module_FileName = "";
 	//--------------------------------------------------------------------------------
 	// for writing code to respective file
 	protected codeGen.Go.GoCodeWriter codeWriter;
@@ -127,6 +129,13 @@ public class GoCodeWriter extends codeGen.BasicCodeWriter implements codeGen.IBa
 			// CREATE FILES & SET FILE NAMES 
 			//================================================================================
 			//--------------------------------------------------------------------------------
+			// ../../go.mod
+			what = "module file";
+			int pos = absoluteUcTargetPath.lastIndexOf(relativeUcPath);
+			fileName = absoluteUcTargetPath.substring(0, pos) + "go.mod";
+			module_FileName = fileName;
+			module_BufferedWriter = openAutoFile(module_FileName);
+			//--------------------------------------------------------------------------------
 			// test/<useCaseAndConfigName>_test.go
 			what = "test file";
 			fileName = test_Path + "" + useCaseAndConfigName + "_test.go";
@@ -144,6 +153,12 @@ public class GoCodeWriter extends codeGen.BasicCodeWriter implements codeGen.IBa
 			fileName = useCase_Path + "testcase" + ".go";
 			testcase_FileName = fileName;
 			testcase_BufferedWriter = openAutoFile(testcase_FileName); 
+			//--------------------------------------------------------------------------------
+			// use_case/testcase.go
+			what = "module file";
+			fileName = useCase_Path + "testcase" + ".go";
+			testcase_FileName = fileName;
+			testcase_BufferedWriter = openAutoFile(testcase_FileName);
 			//--------------------------------------------------------------------------------
 			cur_BufferedWriter = null;
 		} catch (IOException e) {
@@ -173,6 +188,9 @@ public class GoCodeWriter extends codeGen.BasicCodeWriter implements codeGen.IBa
 		case codeGen.Go.GoDefs.USE_CASE_FILE_ID:
 			cur_BufferedWriter = useCase_BufferedWriter;
 			break;
+		case codeGen.Go.GoDefs.MODULE_FILE_ID:
+			cur_BufferedWriter = module_BufferedWriter;
+			break;
 		default:
 			throw new SNHException(111789, "ill. fileId = " + fileId, m);
 		}			
@@ -195,6 +213,8 @@ public class GoCodeWriter extends codeGen.BasicCodeWriter implements codeGen.IBa
 			return(testcase_FileName);
 		case codeGen.Go.GoDefs.USE_CASE_FILE_ID:
 			return(useCase_FileName);
+		case codeGen.Go.GoDefs.MODULE_FILE_ID:
+			return(module_FileName);
 		default:
 			throw new SNHException(811677, "ill. fileId = " + fileId, m);
 		}			
@@ -215,6 +235,8 @@ public class GoCodeWriter extends codeGen.BasicCodeWriter implements codeGen.IBa
 				testcase_BufferedWriter.close();
 			if(test_BufferedWriter != null)
 				test_BufferedWriter.close();
+			if(module_BufferedWriter != null)
+				module_BufferedWriter.close();
 		} catch (IOException e) {
 			throw new SNHException(878877, "can't close files", m);
 		}
