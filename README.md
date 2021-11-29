@@ -28,7 +28,7 @@ Installation, Translation and Simulation:
   
   cd LDIR
 
-6) Now you can run the desired use case. E.g. if you want to run the simulator with the just compiled ClientServce use case, you have to type:
+6) Now you can run the desired use case. E.g. if you want to run the simulator with the just compiled ClientServer use case, you have to type:
 
   cd LDIR/examples/_GO-AUTOMATON/src/useCases/Apps/ClientServer_One/test
   
