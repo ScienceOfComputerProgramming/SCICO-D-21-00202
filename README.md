@@ -12,7 +12,7 @@ Installation, Translation and Simulation:
 
   cd LDIR
 
-4) Execute the following command to translate the ClientServer use case modeled with DRAWIOinto go-code. The use case may have many configurations, concretely we will compile the configuration termed "One". The use case must be exported as xml, concretely this xml is found in "Apps":  
+4) Execute the following command to translate the ClientServer use case, modeled with DRAWIO, into go-code. The use case may have many configurations, concretely we will compile the configuration termed "One". The use case must be exported as xml, concretely this xml is found in "Apps":  
 
   java -jar ./peermodel-translator-2.0.0.jar DRAWIO ./examples/ Apps/ ClientServer One GO-CODE
   
