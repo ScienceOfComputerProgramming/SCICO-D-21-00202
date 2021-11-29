@@ -16,7 +16,7 @@ Installation, Translation and Simulation:
 
   java -jar ./peermodel-translator-2.0.0.jar DRAWIO ./examples/ Apps/ ClientServer One GO-CODE
   
-  Note: In <LDIR>/examples/_GO-AUTOMATON/src/useCases the compiled use case .go-files can be found. The first time you translate a use case, the directory LDIR/examples/_GO-AUTOMATON is created.
+  Note: In LDIR/examples/_GO-AUTOMATON/src/useCases the compiled use case .go-files can be found. The first time you translate a use case, the directory LDIR/examples/_GO-AUTOMATON is created.
   
   Info: The ClientServer example starts two peers termed client1 and superServer. Client1 sends one request to the superServer which in turn sends an answer back. When client1 receives the answer, the system is stopped.
 
