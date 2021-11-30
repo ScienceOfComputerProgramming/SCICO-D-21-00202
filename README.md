@@ -2,7 +2,7 @@
 <h2>About</h2>
 
 The Peer Model is a modeling tool for distribution, concurrency and blackboard-based collaboration and coordination.
-This repository contains the translator that converts a use case into go-code that can be executed by the simulator.
+This repository contains the translator that converts a use case into Go-code that can be executed by the simulator.
 
 <h2>Installation</h2>
 
@@ -21,7 +21,7 @@ This repository contains the translator that converts a use case into go-code th
 
   <b>cd </b><em>LDIR</em>
 
-(5) Execute the following command to e.g. translate the ClientServer use case, modeled with DRAWIO, into go-code. The use case may have many configurations, concretely we will compile the configuration termed "One". The use case must be exported as xml, concretely this xml is found in "Apps":  
+(5) Execute the following command to e.g. translate the ClientServer use case, modeled with DRAWIO, into go-code. The use case may have many configurations, concretely we will compile the configuration termed "One". The use case must be exported as non-compressed xml to <em>LDIR</em>/examples/_USE-CASES/_DRAWIO\Apps:  
 
   <b>java -jar ./peermodel-translator-2.0.0.jar DRAWIO ./examples/ Apps/ ClientServer One GO-CODE</b>
   
