@@ -1,40 +1,50 @@
 # translator 
+<strong>About</strong>
+
 The Peer Model is a modeling tool for distribution, concurrency and blackboard-based collaboration and coordination.
 This repository contains the translator that converts a use case into go-code that can be executed by the simulator.
 
-Installation, Translation and Simulation:
+<strong>Installation</strong>
 
 0) You need a runtime installation for the programming languages Java (https://www.java.com/) and Go-Lang (https://go.dev/). 
    
   Note: The Java and Go-Lang environment variables - especially the path variables - must be set correctly. See  manual of the respective programming language.
 
-1) Download the most recent jar file of the peermodel-translator from https://github.com/peermodel/translator/releases and store it in a local directory. Let us refer to the absolute path of this local directory with LDIR in the following.
+1) Download the most recent jar file of the peermodel-translator from https://github.com/peermodel/translator/releases and store it in a local directory. Let us refer to the absolute path of this local directory with <em>LDIR</em> in the following.
 
-2) Check out the examples found in https://github.com/peermodel/examples into LDIR.
+2) Check out the examples found in https://github.com/peermodel/examples into <em>LDIR</em>.
+
+
+<strong>Translation of a use case</strong>
 
 3) Open a powershell and change directory to <em>LDIR</em>, i.e:
 
-  cd LDIR
+  cd <em>LDIR</em>
 
-4) Execute the following command to translate the ClientServer use case, modeled with DRAWIO, into go-code. The use case may have many configurations, concretely we will compile the configuration termed "One". The use case must be exported as xml, concretely this xml is found in "Apps":  
+4) Execute the following command to e.g. translate the ClientServer use case, modeled with DRAWIO, into go-code. The use case may have many configurations, concretely we will compile the configuration termed "One". The use case must be exported as xml, concretely this xml is found in "Apps":  
 
   java -jar ./peermodel-translator-2.0.0.jar DRAWIO ./examples/ Apps/ ClientServer One GO-CODE
   
-  Note: In LDIR/examples/_GO-AUTOMATON/src/useCases the compiled use case .go-files can be found. The first time you translate a use case, the directory LDIR/examples/_GO-AUTOMATON is created.
+  Note: In <em>LDIR</em>/examples/_GO-AUTOMATON/src/useCases the compiled use case .go-files can be found. The first time you translate a use case, the directory <em>LDIR</em>/examples/_GO-AUTOMATON is created.
   
   Info: The ClientServer example starts two peers termed client1 and superServer. Client1 sends one request to the superServer which in turn sends an answer back. When client1 receives the answer, the system is stopped.
 
-5) Execute once the following commands (starting in LDIR) in order to create all dependencies for the simulator:
+5) Execute once the following commands (starting in <em>LDIR</em>) in order to create all dependencies for the simulator:
 
-  cd LDIR/examples/_GO-AUTOMATON/src/useCases
+  cd <em>LDIR</em>/examples/_GO-AUTOMATON/src/useCases
   
   go mod tidy
   
-  cd LDIR
+  cd <em>LDIR</em>
+
+
+<strong>Simulation run of a use case</strong>
 
 6) Now you can run the desired use case. E.g. if you want to run the simulator with the just compiled ClientServer use case, you have to type:
 
-  cd LDIR/examples/_GO-AUTOMATON/src/useCases/Apps/ClientServer_One/test
+  cd <em>LDIR</em>/examples/_GO-AUTOMATON/src/useCases/Apps/ClientServer_One/test
+  
+  <b>go test</b>
   
   Info: The simulator output for the example use case contains:
   - Traces of services called by peers:
