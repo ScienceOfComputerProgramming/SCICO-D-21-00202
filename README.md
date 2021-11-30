@@ -4,11 +4,15 @@ This repository contains the translator that converts a use case into go-code th
 
 Installation, Translation and Simulation:
 
+0) You need a runtime installation for the programming languages Java (https://www.java.com/) and Go-Lang (https://go.dev/). 
+   
+  Note: The Java and Go-Lang environment variables - especially the path variables - must be set correctly. See  manual of the respective programming language.
+
 1) Download the most recent jar file of the peermodel-translator from https://github.com/peermodel/translator/releases and store it in a local directory. Let us refer to the absolute path of this local directory with LDIR in the following.
 
 2) Check out the examples found in https://github.com/peermodel/examples into LDIR.
 
-3) Open a powershell and change directory to LDIR, i.e:
+3) Open a powershell and change directory to <em>LDIR</em>, i.e:
 
   cd LDIR
 
